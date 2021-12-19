@@ -7,13 +7,6 @@ pipeline {
         stage('build') {
             steps {
                 echo "Building ${params.environment} environment..."
-                try {
-                    sh "docker build . -f Dockerfile"
-                }
-                catch (exc) {
-                    echo "Something went wrong"
-                    throw
-                }
             }
         }
     }
