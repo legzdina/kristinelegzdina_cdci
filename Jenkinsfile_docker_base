@@ -1,36 +1,68 @@
 pipeline {
     agent any
+    triggers {
+        pollSCM('*/1 * * * *')
+    }
     stages {
         stage('build-stg') {
             steps {
-                echo "build stage"
+                build('stg')
             }
         }
         stage('deploy-stg') {
             steps {
-                echo "deploy stage"
+                script {
+                    deploy('stg')
+                }
             }
         }
         stage('test-stg') {
             steps {
-                echo "test stage"
+                script {
+                    test('stg')
+                }
             }
         }
         stage('build-prd') {
             steps {
-                echo "build prod"
+                build('prd')
             }
         }
         stage('deploy-prd') {
             steps {
-                echo "deploy prod"
+                script {
+                    deploy('prd')
+                }
             }
         }
         stage('test-prd') {
             steps {
-                echo "test prod"
+                script {
+                    test('prd')
+                }
+            }
+        }
+    }
+    post {
+        success {
+            echo "Success!"
+        }
+        failure {
+            script {
+                error "Failure!"
             }
         }
     }
 }
-   
+
+def build(String environment){
+    echo "Building ${environment} environment..."
+}
+
+def deploy(String environment){
+    echo "Deployment to ${environment} environment..."
+}
+
+def test(String environment){
+    echo "Running tests on ${environment} environment..."
+}
