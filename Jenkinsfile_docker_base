@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    stages {
+        stage('build-stg') {
+            steps {
+                echo "build stage"
+            }
+        }
+        stage('deploy-stg') {
+            steps {
+                echo "deploy stage"
+            }
+        }
+        stage('test-stg') {
+            steps {
+                echo "test stage"
+            }
+        }
+        stage('build-prd') {
+            steps {
+                echo "build prod"
+            }
+        }
+        stage('deploy-prd') {
+            steps {
+                echo "deploy prod"
+            }
+        }
+        stage('test-prd') {
+            steps {
+                echo "test prod"
+            }
+        }
+    }
+}
+   
