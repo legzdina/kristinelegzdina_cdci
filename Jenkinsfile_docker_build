@@ -7,8 +7,6 @@ pipeline {
         stage('build') {
             steps {
                 echo "Building ${params.environment} environment..."
-                sh "docker build . -f Dockerfile"
-    
             }
         }
     }
