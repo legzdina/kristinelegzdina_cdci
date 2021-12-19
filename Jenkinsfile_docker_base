@@ -58,16 +58,14 @@ pipeline {
 def build(String environment){
     echo "Building to ${environment} triggered..."
     build job: "docker_build", parameters: [string(name: "environment", value: "${environment}")]
-    sh "./ui-automation /send_notification.sh 'building on ${environment}'"
+    bash send_notification.sh “dev deployment” 
 }
 
 def deploy(String environment){
     echo "Deployment to ${environment} environment..."
-    sh "./ui-automation /send_notification.sh 'building on ${environment}'"
 
 }
 
 def test(String environment){
     echo "Running tests on ${environment} environment..."
-    sh "./ui-automation /send_notification.sh 'building on ${environment}'"
 }
