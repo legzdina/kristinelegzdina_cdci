@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     deploy('stg')
-                    bash send_notification.sh “dev deployment” 0 
+                    bash /ui-automation/send_notification.sh “dev deployment” 0 
                 }
             }
         }
