@@ -13,7 +13,6 @@ pipeline {
             steps {
                 script {
                     deploy('stg')
-                    repo()
                 }
             }
         }
