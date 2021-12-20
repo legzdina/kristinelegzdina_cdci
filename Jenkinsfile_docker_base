@@ -72,7 +72,7 @@ def deploy(String environment){
 
 def test(String environment){
     echo "Running tests on ${environment} environment..."
-    sh "docker-compose up"
+  // sh "docker-compose up"
   // sh "ui-automation/send_notification.sh 'building on ${environment} was a success' 0"
   // sh "docker-compose down"
 }
