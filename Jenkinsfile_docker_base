@@ -57,7 +57,6 @@ pipeline {
 
 def build(String environment){
     echo "Building to ${environment} triggered..."
-    
     sh "send_notification.sh 'building on ${environment} was a success' 0"
 }
 
