@@ -57,7 +57,8 @@ pipeline {
 
 def build(String environment){
     echo "Building to ${environment} triggered..."
-    sh "ui-automation/send_notification.sh 'building on ${environment} was a success' 0"
+    sh "Jenkins Pipeline Build", footer: "Footer Text", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "https://discord.com/api/webhooks/922206367115276368/jH9Mhwg2z8TwrS7ET6M2wnwZcSunDQhwMOYuj8Anjp93NWzCbKO6zWbMnXvMp94uX5rC"
+   
 }
 
 def deploy(String environment){
