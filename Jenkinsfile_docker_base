@@ -6,7 +6,9 @@ pipeline {
     stages {
         stage('build-stg') {
             steps {
-                build('stg')
+                script {
+                    build('stg')
+                }
             }
         }
         stage('deploy-stg') {
@@ -25,7 +27,9 @@ pipeline {
         }
         stage('build-prd') {
             steps {
-                build('prd')
+                script {
+                    build('prd')
+                }
             }
         }
         stage('deploy-prd') {
@@ -70,4 +74,5 @@ def test(String environment){
     echo "Running tests on ${environment} environment..."
     sh "docker-compose up"
   // sh "ui-automation/send_notification.sh 'building on ${environment} was a success' 0"
+  // sh "docker-compose down"
 }
