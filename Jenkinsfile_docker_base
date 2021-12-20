@@ -43,12 +43,21 @@ pipeline {
             }
         }
     }
+    post {
+        success {
+            echo "Success!"
+        }
+        failure {
+            script {
+                error "Failure!"
+            }
+        }
+    }
+}
 
 def build(String environment){
     echo "Building to ${environment} triggered..."
-/**
- * sbuild job: "docker_build", parameters: [string(name: "environment", value: "${environment}")]
- */
+    
 }
 
 def deploy(String environment){
