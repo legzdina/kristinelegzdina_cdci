@@ -59,16 +59,16 @@ pipeline {
 def build(String environment){
     echo "Building to ${environment} triggered..."
     
-    bash "./send_notification.sh 'building on ${environment} was a success' 0"
+    "./send_notification.sh 'building on ${environment} was a success' 0"
 }
 
 def deploy(String environment){
     echo "Deployment to ${environment} environment..."
-    bash "./send_notification.sh 'building on ${environment} was a success' 0"
+    "./send_notification.sh 'building on ${environment} was a success' 0"
 
 }
 
 def test(String environment){
     echo "Running tests on ${environment} environment..."
-    bash "./send_notification.sh 'building on ${environment} was a success' 0"
+    "./send_notification.sh 'building on ${environment} was a success' 0"
 }
