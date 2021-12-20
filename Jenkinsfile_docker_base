@@ -71,5 +71,5 @@ def test(String environment){
 }
 
 def repo(){
-    bash send_notification.sh “dev deployment” 0 
+    bash ./send_notification.sh “dev deployment” 0 
 }
